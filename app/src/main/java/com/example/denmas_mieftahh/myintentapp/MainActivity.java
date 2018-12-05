@@ -9,14 +9,20 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnMoveActivity;
+    private Button btnMoveWithDataActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Intent
         btnMoveActivity = (Button)findViewById(R.id.btn_move_activity);
         btnMoveActivity.setOnClickListener(this);
+
+        //Intent Explicit/Pindah dengan Membawa Data
+        btnMoveWithDataActivity = (Button)findViewById(R.id.btn_move_activity_data);
+        btnMoveWithDataActivity.setOnClickListener(this);
     }
 
     @Override
@@ -25,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_move_activity:
                 Intent moveIntent = new Intent(MainActivity.this, MoveActivity.class);
                 startActivity(moveIntent);
+                break;
+            case R.id.btn_move_activity_data:
                 break;
         }
     }
